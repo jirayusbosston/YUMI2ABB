@@ -1,0 +1,39 @@
+<title>Order</title>
+
+<head>
+    <script src="Engine_Admin.js"></script>
+</head>
+
+<body>
+    <label for="Name">Name:</label>
+    <input type="text" id="Name" name="Name"><br><br>
+    
+    <button onclick="AddOrderMilk()"> Add Milk</button>
+    <button onclick="AddOrderChoc()"> Add Choc</button>
+    <button onclick="AssignOrdertoPos1()"> Assign Pos1 </button>
+    <button onclick="FinishPos1()"> Pos1 TakeOut </button>
+
+    <button onclick="AssignOrdertoPos2()"> Assign Pos2 </button>
+    <button onclick="FinishPos2()"> Pos2 TakeOut </button>
+
+    <button onclick="AssignOrdertoPos3()"> Assign Pos3 </button>
+    <button onclick="FinishPos3()"> Pos3 TakeOut </button>
+    <h2>Queue</h2>
+    <ul id="Orderlist"></ul>
+    <h2>Current Order</h2>
+    <h5 id="CurrentOrder"></h5>
+    <h2>Pos1</h2>
+    <h5 id="Pos1"></h5>
+    <h2>Pos2</h2>
+    <h5 id="Pos2"></h5>
+    <h2>Pos3</h2>
+    <h5 id="Pos3"></h5>
+
+    <button onclick="FinishOrder()"> Delete </button>
+</body>
+<script>
+
+    checkOrder();
+    setInterval( checkOrder,2000)
+
+</script>

@@ -1,0 +1,188 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YuMi Icecream</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        /* Style for queue and slot images */
+        .queue-image {
+            width: 30px; /* Smaller image size for queue */
+            height: auto;
+        }
+
+        .slot-image {
+            width: 50px; /* Image size for slots */
+            height: auto;
+        }
+
+        /* Rainbow progress bar */
+        .rainbow-progress {
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+        }
+    </style>
+
+    <script src="Engine.js"></script>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <br>
+        <div class="row justify-content-between">
+            <div class="col-9">
+                <h1>YuMi </h1>
+                <h1>Soft Serve Ice Cream </h1>
+            </div>
+
+            <div class="col-3">
+                <br>
+                <img class="rounded float-end d-block mx-3" src="pic/ABB_logo.svg" alt="" width="150">
+                <br>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-7">
+                <div class="row">
+                    <div class="col">
+                        <div class="card" id="ProcessField">
+                            <div class="card-header">
+                                <h3 id="cStatusTitle">Processing</h3>
+                            </div>
+                            <div class="card-body">
+                                <br>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h2 class="card-title" id="cName"></h2>
+                                        <br> <br> <br>
+                                    </div>
+                                    <div class="col">
+                                        <h4 class="card-text text-end mx-3" id="cStatus">Processing</h4>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="progress rainbow-progress" role="progressbar"
+                                            aria-label="Rainbow Progress Bar" aria-valuenow="50" aria-valuemin="0"
+                                            aria-valuemax="100">
+                                            <div id="processing"
+                                                class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+                                                style="width: 0%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="col border border-danger border-5 rounded">
+                            <div class="row text-center">
+                                <h3>Scan to Order</h3>
+                            </div>
+                            <img class="rounded mx-auto d-block" src="pic/qrcode_yumi-icecream.web.app.png" alt="" height="200">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <!-- Slot 1 -->
+                        <div class="card" id="Pos1Field">
+                            <div class="card-header">
+                                <h3>SLOT 1</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <h4 class="card-title" id="Pos1Name">Empty</h4>
+                                    </div>
+                                    <div class="col-7">
+                                        <h5 class="card-text text-end" id="Pos1Flavor"> ...</h5>
+                                    </div>
+                                    <div class="col-2 text-center">
+                                        <img id="Pos1Img" src="pic/Milkicecream.png" alt=" " class="img-fluid slot-image">
+                                    </div>
+                            
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <!-- Slot 2 -->
+                        <div class="card" id="Pos2Field">
+                            <div class="card-header">
+                                <h3>SLOT 2</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <h4 class="card-title" id="Pos2Name">Test</h4>
+                                    </div>
+                                    <div class="col-7">
+                                        <h5 class="card-text text-end" id="Pos2Flavor"> ...</h5>
+                                    </div>
+                                    <div class="col-2 text-center">
+                                        <img id="Pos2Img" src="pic/Milkicecream.png" alt=" " class="img-fluid slot-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <!-- Slot 3 -->
+                        <div class="card" id="Pos3Field">
+                            <div class="card-header">
+                                <h3>SLOT 3</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <h4 class="card-title" id="Pos3Name">Test</h4>
+                                    </div>
+                                    <div class="col-7">
+                                        <h5 class="card-text text-end" id="Pos3Flavor"> ...</h5>
+                                    </div>
+                                    <div class="col-2 text-center">
+                                        <img id="Pos3Img" src="pic/Milkicecream.png" alt=" " class="img-fluid slot-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Queue</h3>
+                            </div>
+                            <div id="QueueField">
+                                <!-- Queue items will be dynamically added here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="row"></div>
+    </div>
+    <br>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+<script>
+    // Trigger the order checking and updating mechanism
+    checkOrder();
+    setInterval(checkOrder, 1000);
+</script>
